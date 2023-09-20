@@ -54,12 +54,15 @@
             try {
                 const url = 'https://tugas1-ppl-api.vercel.app/akar_kuadrat.php';
                 const parameters = {
-                    number: 'number'
+                    number: number
                 };
+                alert(parameters);
 
                 // Construct the URL with query parameters
                 const queryString = Object.keys(parameters).map(key => key + '=' + parameters[key]);
+                alert(queryString);
                 const fullURL = `${url}?${queryString}`;
+                alert(fullURL);
 
                 fetch(fullURL, {
                     method: 'POST',
