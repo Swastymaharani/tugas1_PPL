@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hitung Akar Kuadrat</title>
+    <!-- Tambahkan pustaka Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">API Service Menghitung Akar Kuadrat</h1>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="number">Masukkan Angka:</label>
+                        <input type="text" class="form-control" id="number" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="calculateSquareRoot()">Hitung Akar Kuadrat</button>
+                </form>
+                <div class="mt-3">
+                    <p id="result"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tambahkan pustaka Bootstrap JavaScript dan jQuery (diperlukan untuk beberapa komponen Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function isNumeric(value) {
+            // Fungsi ini akan memeriksa apakah nilai adalah angka
+            return /^\d+$/.test(value);
+        }
+
+        function calculateSquareRoot() {
+            const numberInput = document.getElementById('number');
+            const number = numberInput.value;
+
+            // Periksa apakah input kosong
+            if (!number) {
+                alert('Mohon masukkan angka sebelum menghitung akar kuadrat.');
+                return;
+            }
+
+            // Periksa apakah input hanya mengandung angka
+            if (!isNumeric(number)) {
+                alert('Mohon masukkan hanya angka.');
+                return;
+            }
+
+            fetch(`akar_kuadrat.php?number=${number}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.square_root !== undefined) {
+                    document.getElementById('result').innerHTML = `Akar kuadrat dari ${number} adalah ${data.square_root}`;
+                } else {
+                    document.getElementById('result').innerHTML = `Error: ${data.error}`;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
