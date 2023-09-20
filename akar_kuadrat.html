@@ -10,7 +10,7 @@
         <h1 class="text-center">API Service Menghitung Akar Kuadrat</h1>
         <div class="row justify-content-center mt-4">
             <div class="col-md-6">
-                <form method="POST" action="https://tugas1-ppl-api.vercel.app/akar_kuadrat.php">
+                <form>
                     <div class="form-group">
                         <label for="number">Masukkan Angka:</label>
                         <input type="text" class="form-control" id="number" required>
@@ -35,7 +35,7 @@
             return /^\d+$/.test(value);
         }
 
-        async function calculateSquareRoot() {
+        function calculateSquareRoot() {
             const numberInput = document.getElementById('number');
             const number = numberInput.value;
 
@@ -56,7 +56,6 @@
                 const parameters = {
                     number: number
                 };
-                alert(parameters);
 
                 // Construct the URL with query parameters
                 const queryString = Object.keys(parameters).map(key => key + '=' + parameters[key]);
@@ -65,7 +64,7 @@
                 alert(fullURL);
 
                 fetch(fullURL, {
-                    method: 'POST',
+                    method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
                     },
