@@ -54,7 +54,7 @@
             try {
                 const url = 'https://tugas1-ppl-api.vercel.app/akar_kuadrat.php';
                 const parameters = {
-                    param1: 'number'
+                    number: 'number'
                 };
 
                 // Construct the URL with query parameters
@@ -66,7 +66,7 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(parameters)
                 })
                 .then(response => response.json())
                 .then(data => {
