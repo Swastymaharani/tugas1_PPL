@@ -63,6 +63,7 @@
                 alert(fullURL);
 
                 fetch(fullURL, {
+                    mode:'cors',
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
