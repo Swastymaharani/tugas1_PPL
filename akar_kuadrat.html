@@ -12,8 +12,8 @@
             <div class="col-md-6">
                 <form>
                     <div class="form-group">
-                        <label for="number">Masukkan Angka:</label>
-                        <input type="text" class="form-control" id="number" required>
+                        <label for="numbers">Masukkan Angka:</label>
+                        <input type="text" class="form-control" id="numbers" required>
                     </div>
                     <button type="button" class="btn btn-primary" onclick="calculateSquareRoot()">Hitung Akar Kuadrat</button>
                 </form>
@@ -36,17 +36,17 @@
         }
 
         function calculateSquareRoot() {
-            const numberInput = document.getElementById('number');
-            const number = numberInput.value;
+            const numbersInput = document.getElementById('numbers');
+            const numbers = numbersInput.value;
 
             // Periksa apakah input kosong
-            if (!number) {
+            if (!numbers) {
                 alert('Mohon masukkan angka sebelum menghitung akar kuadrat.');
                 return;
             }
 
             // Periksa apakah input hanya mengandung angka
-            if (!isNumeric(number)) {
+            if (!isNumeric(numbers)) {
                 alert('Mohon masukkan hanya angka.');
                 return;
             }
@@ -54,8 +54,9 @@
             try {
                 const url = 'https://tugas1-ppl-api.vercel.app/akar_kuadrat.php';
                 const parameters = {
-                    number: number
+                    numbers: $numbers
                 };
+                alert(parameters.numbers);
 
                 // Construct the URL with query parameters
                 const queryString = Object.keys(parameters).map(key => key + '=' + parameters[key]);
@@ -73,7 +74,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.square_root !== undefined) {
-                        document.getElementById('result').innerHTML = `Akar kuadrat dari ${number} adalah ${data.square_root}`;
+                        document.getElementById('result').innerHTML = `Akar kuadrat dari ${numbers} adalah ${data.square_root}`;
                     } else {
                         document.getElementById('result').innerHTML = `Error: ${data.error}`;
                     }
