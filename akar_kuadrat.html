@@ -52,7 +52,7 @@
             }
 
             try {
-                const url = 'https://tugas1-ppl-3gej0hr5y-swastymaharani.vercel.app/akar_kuadrat.php';
+                const url = 'https://tugas1-ppl-5vaotvz4o-swastymaharani.vercel.app/akar_kuadrat.php';
                 const parameters = {
                     numbers: numbers
                 };
@@ -69,11 +69,11 @@
                     },
                 })
                 .then(response => response.json()) // Parse the JSON data from the response
-                .then(response => {
-                    if (response.square_root !== undefined) {
-                        document.getElementById('result').innerHTML = `Akar kuadrat dari ${numbers} adalah ${response.square_root}`;
+                .then(data => {
+                    if (data.square_root !== undefined) {
+                        document.getElementById('result').innerHTML = `Akar kuadrat dari ${numbers} adalah ${data.square_root}`;
                     } else {
-                        document.getElementById('result').innerHTML = `Error: ${response.error}`;
+                        document.getElementById('result').innerHTML = `Error: ${data.error}`;
                     }
                 })
                 .catch(error => console.error('Error:', error));
