@@ -52,7 +52,7 @@
             }
 
             try {
-                const url = 'https://tugas1-ppl-iwfo2xqp5-swastymaharani.vercel.app/akar_kuadrat.php';
+                const url = 'https://tugas1-ppl-m80goxin4-swastymaharani.vercel.app/akar_kuadrat.php';
                 const parameters = {
                     numbers: numbers
                 };
@@ -63,10 +63,12 @@
                 alert(fullURL);
 
                 fetch(fullURL, {
-                    method: 'GET',
+                    mode:'no-cors',
+                    method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json', // Set the content type to JSON
                     },
+                    body: JSON.stringify(data), // Convert the data object to a JSON string
                 })
                 .then(response => response.json()) // Parse the JSON data from the response
                 .then(data => {
