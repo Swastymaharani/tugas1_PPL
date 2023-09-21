@@ -68,7 +68,7 @@
                     headers: {
                         'Content-Type': 'application/json', // Set the content type to JSON
                     },
-                    body: JSON.stringify(data), // Convert the data object to a JSON string
+                    body: JSON.stringify(parameters), // Convert the data object to a JSON string
                 })
                 .then(response => response.json()) // Parse the JSON data from the response
                 .then(data => {
