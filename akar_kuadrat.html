@@ -10,13 +10,13 @@
         <h1 class="text-center">API Service Menghitung Akar Kuadrat</h1>
         <div class="row justify-content-center mt-4">
             <div class="col-md-6">
-                <!-- <form> -->
+                <form action="https://tugas1-ppl-m80goxin4-swastymaharani.vercel.app/akar_kuadrat.php" method="POST">
                     <div class="form-group">
                         <label for="numbers">Masukkan Angka:</label>
-                        <input type="text" class="form-control" id="numbers" required>
+                        <input type="number" class="form-control" id="numbers" required>
                     </div>
-                    <button type="button" class="btn btn-primary" onclick="calculateSquareRoot()">Hitung Akar Kuadrat</button>
-                <!-- </form> -->
+                    <button type="submit" class="btn btn-primary" onclick="calculateSquareRoot()">Hitung Akar Kuadrat</button>
+                </form>
                 <div class="mt-3">
                     <p id="result"></p>
                 </div>
@@ -52,18 +52,6 @@
             }
 
             try {
-                const express = require('express');
-                const serverless = require('serverless-http');
-                const app = express();
-
-                // Enable CORS for all routes
-                app.use((req, res, next) => {
-                    res.setHeader('Access-Control-Allow-Origin', '*'); // Replace '*' with your allowed origins
-                    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-                    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-                    next();
-                });
-                
                 const url = 'https://tugas1-ppl-m80goxin4-swastymaharani.vercel.app/akar_kuadrat.php';
                 const parameters = {
                     numbers: numbers
@@ -94,9 +82,6 @@
                 alert(err); // Failed to fetch
             }  
         }
-
-        // Wrap your Express app with serverless-http for Vercel compatibility
-        module.exports.handler = serverless(app);
     </script>
 </body>
 </html>
