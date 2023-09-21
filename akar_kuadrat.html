@@ -69,7 +69,6 @@
                         'Content-Type': 'application/json'
                     },
                 })
-                .then(response => response.json())
                 .then(data => {
                     if (data.square_root !== undefined) {
                         document.getElementById('result').innerHTML = `Akar kuadrat dari ${numbers} adalah ${data.square_root}`;
